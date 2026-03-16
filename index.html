@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Somya Goel | Electronics & Communication Engineer</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #111729;
+      --card: #151c2f;
+      --accent: #3ac9b0;
+      --accent-soft: rgba(58, 201, 176, 0.1);
+      --text-main: #f7f8fd;
+      --text-muted: #a4b0d3;
+      --border-subtle: #232b3f;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+
+      --shadow-soft: 0 18px 45px rgba(3, 8, 24, 0.7);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+
+      --max-width: 1080px;
+
+      --text-xs: 0.75rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.35rem;
+      --text-2xl: 1.8rem;
+      --text-3xl: 2.3rem;
+
+      --transition-fast: 160ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #1b2946 0, #050713 55%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ---------- Layout ---------- */
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4) var(--space-10);
+    }
+
+    section {
+      padding-block: var(--space-8);
+      scroll-margin-top: 5rem;
+    }
+
+    .section-heading {
+      font-size: var(--text-2xl);
+      font-weight: 600;
+      margin-bottom: var(--space-4);
+      letter-spacing: 0.02em;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: var(--text-sm);
+      max-width: 560px;
+      margin-bottom: var(--space-6);
+    }
+
+    /* ---------- Header / Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 5, 17, 0.96),
+        rgba(2, 5, 17, 0.75),
+        transparent
+      );
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: "Poppins", system-ui, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: var(--text-sm);
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #3ac9b0 45%, #0b1020 100%);
+      box-shadow: 0 0 0 1px rgba(58, 201, 176, 0.3),
+        0 0 18px rgba(58, 201, 176, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      padding: 0.15rem 0;
+      border-bottom: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(58, 201, 176, 0.55);
+      color: var(--accent);
+      font-size: var(--text-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(6, 16, 32, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-cta span {
+      font-size: 1rem;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.4fr);
+      gap: var(--space-8);
+      align-items: center;
+      padding-top: var(--space-8);
+    }
+
+    .hero-kicker {
+      font-size: var(--text-sm);
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: var(--space-2);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-size: clamp(2.1rem, 4vw, 2.8rem);
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      color: var(--text-muted);
+      font-size: var(--text-base);
+      max-width: 34rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-5);
+      font-size: var(--text-sm);
+    }
+
+    .hero-pill {
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(58, 201, 176, 0.35);
+      background: rgba(10, 17, 30, 0.8);
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.65rem 1.35rem;
+      border-radius: 999px;
+      font-size: var(--text-sm);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast),
+        box-shadow var(--transition-fast), border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #3ac9b0, #37b1f0);
+      color: #020712;
+      font-weight: 600;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      background: rgba(7, 13, 29, 0.8);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(58, 201, 176, 0.4);
+      color: var(--accent);
+      background: rgba(10, 19, 35, 0.95);
+    }
+
+    .hero-secondary-note {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+    }
+
+    /* Hero right card */
+    .hero-card {
+      background: radial-gradient(circle at top, #27345a 0, #101528 40%, #050713 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(92, 113, 180, 0.5);
+      padding: var(--space-5);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(58, 201, 176, 0.2), transparent 55%),
+        radial-gradient(circle at 80% 80%, rgba(88, 132, 255, 0.28), transparent 55%);
+      opacity: 0.6;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(3, 11, 26, 0.85);
+      border: 1px solid rgba(137, 187, 255, 0.7);
+      font-size: var(--text-xs);
+      margin-bottom: var(--space-4);
+      color: var(--text-muted);
+    }
+
+    .hero-badge-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #3ac9b0;
+      box-shadow: 0 0 0 4px rgba(58, 201, 176, 0.35);
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+
+    .metric {
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      background: rgba(9, 16, 35, 0.8);
+      border: 1px solid rgba(40, 60, 110, 0.7);
+    }
+
+    .metric-label {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .metric-value {
+      font-size: var(--text-xl);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.1rem;
+    }
+
+    .metric-detail {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+    }
+
+    .hero-focus {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+      border: 1px dashed rgba(142, 167, 255, 0.7);
+      background: rgba(5, 10, 24, 0.8);
+    }
+
+    .hero-focus strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---------- About ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: var(--space-6);
+      align-items: flex-start;
+    }
+
+    .about-body {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+    }
+
+    .about-body p + p {
+      margin-top: var(--space-3);
+    }
+
+    .about-list {
+      list-style: none;
+      margin-top: var(--space-4);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: var(--space-3);
+    }
+
+    .about-item {
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      background: rgba(9, 14, 30, 0.95);
+      border: 1px solid var(--border-subtle);
+      font-size: var(--text-sm);
+    }
+
+    .about-item-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-meta {
+      list-style: none;
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .about-meta li + li {
+      margin-top: 0.35rem;
+    }
+
+    /* ---------- Skills ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .skill-card {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: var(--space-4);
+    }
+
+    .skill-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+
+    .skill-tagline {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+      margin-bottom: var(--space-3);
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: var(--text-xs);
+    }
+
+    .tag {
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(16, 24, 46, 0.9);
+      border: 1px solid rgba(77, 102, 166, 0.7);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .tag--accent {
+      border-color: rgba(58, 201, 176, 0.7);
+      color: var(--accent);
+      background: rgba(9, 25, 30, 0.9);
+    }
+
+    /* ---------- Projects ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .project-card {
+      background: var(--card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      padding: var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+        border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(58, 201, 176, 0.7);
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(145deg, #151d30, #0d1426);
+    }
+
+    .project-tag {
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .project-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .project-meta {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .project-meta span::before {
+      content: "• ";
+      opacity: 0.6;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: var(--text-xs);
+    }
+
+    .project-link {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(86, 111, 188, 0.8);
+      color: var(--text-muted);
+    }
+
+    .project-link:hover {
+      border-color: rgba(58, 201, 176, 0.7);
+      color: var(--accent);
+    }
+
+    /* ---------- Experience ---------- */
+    .timeline {
+      border-left: 1px solid var(--border-subtle);
+      padding-left: var(--space-4);
+      margin-top: var(--space-2);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-4);
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.7rem;
+      top: 0.24rem;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(58, 201, 176, 0.35);
+    }
+
+    .timeline-role {
+      font-weight: 600;
+    }
+
+    .timeline-org {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .timeline-meta {
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-body {
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: var(--space-6);
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--text-muted);
+    }
+
+    .contact-card strong {
+      color: var(--text-main);
+    }
+
+    .contact-links {
+      margin-top: var(--space-3);
+      display: grid;
+      gap: 0.65rem;
+      font-size: var(--text-sm);
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .contact-links a span.icon {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    form {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .field {
+      display: grid;
+      gap: 0.35rem;
+      font-size: var(--text-sm);
+    }
+
+    label {
+      color: var(--text-main);
+    }
+
+    input,
+    textarea {
+      background: rgba(5, 8, 20, 0.9);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      padding: 0.55rem 0.7rem;
+      color: var(--text-main);
+      font: inherit;
+      resize: vertical;
+      min-height: 2.25rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: rgba(58, 201, 176, 0.9);
+      box-shadow: 0 0 0 1px rgba(58, 201, 176, 0.6);
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: var(--space-4);
+      font-size: var(--text-xs);
+      color: var(--text-muted);
+      text-align: center;
+      background: rgba(1, 3, 12, 0.9);
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 880px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: var(--space-6);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .page {
+        padding-inline: var(--space-3);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <span>Somya&nbsp;Goel</span>
+      </div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="#contact">
+        <span>●</span>
+        <span>Available for internships</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div>
+        <div class="hero-kicker">Electronics & Communication • Engineering Student</div>
+        <h1 class="hero-title">
+          Hi, I'm <span>Somya Goel</span> — ECE student working on VLSI, RF antennas, and embedded control systems.
+        </h1>
+        <p class="hero-tagline">
+          B.Tech Electronics and Communication Engineering student at Pandit Deendayal Energy University (CGPA 9.38),
+          with experience in RF antenna design, RTL2GDSII flow, microprocessor projects, and control & instrumentation
+          in a 2×250&nbsp;MW thermal power plant.
+        </p>
+
+        <div class="hero-highlights">
+          <div class="hero-pill">Triple‑band patch antenna (IEEE WAMS‑2025)</div>
+          <div class="hero-pill">8×1 MUX using RTL2GDSII (Synopsys flow)</div>
+          <div class="hero-pill">Control & instrumentation – Adani Power ADTPS</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-primary" href="#projects">
+            View featured projects
+          </a>
+          <a class="btn-ghost" href="#contact">
+            Download / request CV
+          </a>
+        </div>
+
+        <p class="hero-secondary-note">
+          Research interests: digital VLSI circuit design, computer architecture, control systems, embedded systems,
+          and RF communication.[file:46]
+        </p>
+      </div>
+
+      <aside class="hero-card" aria-label="Quick profile snapshot">
+        <div class="hero-card-inner">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            Open to research and industry internships in VLSI, RF, and embedded systems
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <div class="metric-label">Current program</div>
+              <div class="metric-value">B.Tech ECE</div>
+              <div class="metric-detail">Pandit Deendayal Energy University · 2023–2027[file:46]</div>
+            </div>
+            <div class="metric">
+              <div class="metric-label">Academics</div>
+              <div class="metric-value">CGPA 9.38</div>
+              <div class="metric-detail">Minor in Computational Data Science (2024–2025)[file:46]</div>
+            </div>
+          </div>
+
+          <div class="hero-focus">
+            <strong>Focus areas:</strong>
+            Digital VLSI, RF antennas, microprocessor & FPGA design, embedded systems, and control & instrumentation in
+            power plants.[file:46]
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-heading">About Somya</h2>
+      <p class="section-subtitle">
+        I enjoy turning theoretical concepts from electronics, RF, and computer architecture into working designs,
+        simulations, and well‑documented engineering projects.[file:46]
+      </p>
+
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            I am an Electronics and Communication Engineering undergraduate at Pandit Deendayal Energy University,
+            Gandhinagar, currently in the 3rd year of my B.Tech program.[file:46]
+            My academic work and internships revolve around digital VLSI, RF communication, embedded systems, and
+            control systems.
+          </p>
+          <p>
+            I have co‑authored a research paper titled “Triple‑Band Patch Antenna with Enhanced Bandwidth using Circular
+            and Rectangular Slots”, guided by Dr. Dhaval Pujara and Dr. Vivek K. Pandit, selected for oral presentation
+            at Wireless, Antenna & Microwave Symposium‑2025 and published in IEEE Xplore.[file:46]
+          </p>
+          <p>
+            Alongside coursework, I actively participate in programs like ISWDP (Indian Semiconductor Workforce Program),
+            CICAD‑2025 for antenna design, and a Student Satellite Program under ISRO guidance, which keep me close to
+            industry‑relevant technologies and research.[file:46]
+          </p>
+
+          <ul class="about-list">
+            <li class="about-item">
+              <div class="about-item-title">What I like working on</div>
+              Digital VLSI circuit design (RTL2GDSII), RF antennas and communication links, microprocessor/FPGA
+              projects, and embedded control applications in real industrial systems.[file:46]
+            </li>
+            <li class="about-item">
+              <div class="about-item-title">Currently exploring</div>
+              RTL2GDSII flows, single‑stage pipelined MIPS on FPGA, 3U CubeSat communication subsystems for BHARAT‑G,
+              and advanced antenna design through CICAD‑2025.[file:46]
+            </li>
+          </ul>
+        </div>
+
+        <aside>
+          <ul class="about-meta">
+            <li><strong>Location:</strong> Gandhinagar / Ahmedabad, Gujarat, India</li>
+            <li><strong>Degree:</strong> B.Tech in Electronics & Communication Engineering (2023–2027)</li>
+            <li><strong>Minor:</strong> Computational Data Science (1 year, 2024–2025)[file:46]</li>
+            <li><strong>Core interests:</strong> Digital VLSI, computer architecture, control systems, embedded systems, RF communication[file:46]</li>
+            <li><strong>Tools:</strong> Vivado, TCAD (Sprocess, Sentaurus), TINA‑TI, MATLAB, Proteus, Logisim, AutoCAD (feed structures), Ansys‑HFSS[file:46]</li>
+            <li><strong>Languages:</strong> Verilog (learning), Python, basic C/embedded, 8086‑style microprocessor concepts[file:46]</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-heading">Technical Skills</h2>
+      <p class="section-subtitle">
+        A snapshot of the electronics, communication, and software tools I work with most often.[file:46]
+      </p>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3 class="skill-title">Digital VLSI & Devices</h3>
+          <p class="skill-tagline">
+            From RTL design to layout awareness and semiconductor device understanding.[file:46]
+          </p>
+          <div class="skill-tags">
+            <span class="tag tag--accent">Digital VLSI circuit design</span>
+            <span class="tag">RTL2GDSII basics</span>
+            <span class="tag">MOS device physics & doping</span>
+            <span class="tag">Synopsys‑style flows (course projects)</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="skill-title">RF & Antenna Design</h3>
+          <p class="skill-tagline">
+            Antenna structures, EM simulation, and RF communication concepts.[file:46]
+          </p>
+          <div class="skill-tags">
+            <span class="tag tag--accent">Triple‑band patch antennas</span>
+            <span class="tag">Ansys‑HFSS (antenna design)</span>
+            <span class="tag">Feed structure design (AutoCAD)</span>
+            <span class="tag">RF communication & link thinking</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="skill-title">Microprocessors & Embedded</h3>
+          <p class="skill-tagline">
+            Interfacing, instruction‑set understanding, and embedded implementations.[file:46]
+          </p>
+          <div class="skill-tags">
+            <span class="tag tag--accent">8086 + 8255/8259/ADC/DAC interfacing</span>
+            <span class="tag">Single‑stage pipelined MIPS (FPGA, ongoing)</span>
+            <span class="tag">STM32‑based TC & TM work</span>
+            <span class="tag">Proteus & Logisim simulations</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3 class="skill-title">Signals, Control & Software</h3>
+          <p class="skill-tagline">
+            Signal processing, communication, and supporting tools.[file:46]
+          </p>
+          <div class="skill-tags">
+            <span class="tag tag--accent">Analog‑Digital Communication</span>
+            <span class="tag">Digital Image Processing (course)</span>
+            <span class="tag">MATLAB (onramp, signal processing)</span>
+            <span class="tag">Python programming</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-heading">Selected Projects</h2>
+      <p class="section-subtitle">
+        Academic and self‑driven projects that reflect my interests in VLSI, microprocessors, RF, and communication systems.[file:46]
+      </p>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <article class="project-card">
+          <div class="project-tag">VLSI / RTL2GDSII</div>
+          <h3 class="project-title">8×1 Multiplexer Implementation using RTL2GDSII Flow</h3>
+          <p class="project-desc">
+            Designed an 8×1 MUX for 8‑bit inputs in Verilog and implemented the RTL2GDSII flow using Synopsys flow
+            scripts, analyzing design area, clock frequency, and power consumption.[file:46]
+          </p>
+          <div class="project-meta">
+            <span>Verilog HDL</span>
+            <span>Synopsys‑style flow scripts</span>
+            <span>Design area / timing / power</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">Report / GDS notes (on request)</span>
+            <span class="project-link">Course: Computer Application & Design</span>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card">
+          <div class="project-tag">Computer Architecture</div>
+          <h3 class="project-title">Single‑Stage Pipelined MIPS Processor on FPGA (ongoing)</h3>
+          <p class="project-desc">
+            Understanding detailed working of a MIPS‑style processor and writing Verilog HDL code for a single‑stage
+            pipelined implementation on FPGA, with future scope for full RTL2GDS tape‑out.[file:46]
+          </p>
+          <div class="project-meta">
+            <span>Verilog HDL</span>
+            <span>FPGA‑oriented design</span>
+            <span>Pipeline & control logic</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">Architecture diagrams</span>
+            <span class="project-link">Planned FPGA demo</span>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card">
+          <div class="project-tag">Microprocessor Interfacing</div>
+          <h3 class="project-title">8086 Interfacing with 8255/8259/ADC/DAC</h3>
+          <p class="project-desc">
+            Built multiple Proteus‑based simulations including LED pattern generators, traffic controller, and
+            sensor‑based ADC interfaces using 8086 with 8255 PPI, 8259 PIC, ADC and DAC modules.[file:46]
+          </p>
+          <div class="project-meta">
+            <span>8086 assembly concepts</span>
+            <span>Proteus‑based simulations</span>
+            <span>Real‑world I/O behaviour</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">Simulation files</span>
+            <span class="project-link">Course: Computer Application & Design</span>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card">
+          <div class="project-tag">Digital Communication</div>
+          <h3 class="project-title">ASK‑based Smart Home Control & Mod/Demod Circuits</h3>
+          <p class="project-desc">
+            Implemented a smart home ON/OFF system using ASK Tx‑Rx modules, transmitter antenna, and superheterodyne
+            receiver; validated outputs via LEDs and DSO. Also designed 2‑bit ASK modulation‑demodulation circuits
+            using 555 timer, logic ICs, envelope detector, and LM324 comparator.[file:46]
+          </p>
+          <div class="project-meta">
+            <span>Analog‑Digital Communication</span>
+            <span>Breadboard‑level implementation</span>
+            <span>DSO‑based verification</span>
+          </div>
+          <div class="project-links">
+            <span class="project-link">Lab report</span>
+            <span class="project-link">Course: Digital Communication</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+      <h2 class="section-heading">Experience & Programs</h2>
+      <p class="section-subtitle">
+        Internships, research programs, and satellite activities that shaped my interests in VLSI, RF, and control systems.[file:46]
+      </p>
+
+      <div class="timeline">
+        <!-- Adani Power -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">Intern – Control & Instrumentation Department</h3>
+          <div class="timeline-org">Adani Power Ltd., ADTPS 2×250 MW</div>
+          <div class="timeline-meta">Dec 2025 – Jan 2026 • Thermal power plant – Excellent Energy Efficient Unit[file:46]</div>
+          <p class="timeline-body">
+            Exposure to monitoring, maintenance, and calibration of field instruments (pressure, temperature, flow,
+            level), 4–20 mA current loops, signal conditioning, control valves, PID control loops, interlocks,
+            protections, and HMI/SCADA screens for boiler, turbine, condenser, feedwater, and auxiliary systems.[file:46]
+          </p>
+        </article>
+
+        <!-- Student Satellite Program -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">Student Satellite Program – Communication Subsystem</h3>
+          <div class="timeline-org">3U CubeSat BHARAT‑G • Under ISRO guidance</div>
+          <div class="timeline-meta">Jun 2025 – Ongoing • Student team member[file:46]</div>
+          <p class="timeline-body">
+            Part of the communication subsystem team for a 3U CubeSat, reviewing transceiver structures, antenna
+            systems for satellite and ground station, and preparing initial Configuration & Design Report (CoDR) for the
+            communication subsystem.[file:46]
+          </p>
+        </article>
+
+        <!-- Anjanisutah 3Space -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">TC & TM Engineering Intern</h3>
+          <div class="timeline-org">Anjanisutah 3Space Pvt. Ltd. (Startup)</div>
+          <div class="timeline-meta">Aug 2025 – Sep 2025 • Interfacing STM32 microcontroller[file:46]</div>
+          <p class="timeline-body">
+            Worked as a Telecommand & Telemetry intern, focusing on interfacing STM32 microcontrollers and gaining
+            exposure to practical TC/TM concepts for space‑related applications.[file:46]
+          </p>
+        </article>
+
+        <!-- CICAD -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">Comprehensive Internship Course on Antenna Design (CICAD)</h3>
+          <div class="timeline-org">RaoS Consultants LLC • Under Dr. Sudhakar Rao</div>
+          <div class="timeline-meta">Apr 2025 – Ongoing • 1‑year advanced antenna internship[file:46]</div>
+          <p class="timeline-body">
+            Selected as one of 22 students nationwide (based on CGPA) for a year‑long internship focusing on advanced
+            antenna systems and electromagnetics theory.[file:46]
+          </p>
+        </article>
+
+        <!-- ISWDP -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">ISWDP – Indian Semiconductor Workforce Program</h3>
+          <div class="timeline-org">IISc with Synopsys & Samsung</div>
+          <div class="timeline-meta">Oct 2025 – Dec 2025 • Level 1, 2 & Advanced scholarship[file:46]</div>
+          <p class="timeline-body">
+            Awarded 65% scholarship across Level 1, Level 2 and Advanced among 2000 participants; scored 92% in Level 1
+            and 75% in Level 2, strengthening fundamentals in semiconductor and VLSI concepts.[file:46]
+          </p>
+        </article>
+
+        <!-- Market Analyst -->
+        <article class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true"></div>
+          <h3 class="timeline-role">Market Analyst Intern</h3>
+          <div class="timeline-org">AdiMahesh Seva Foundation, Ahmedabad</div>
+          <div class="timeline-meta">Internship • Market analysis experience[file:46]</div>
+          <p class="timeline-body">
+            Worked as a Market Analyst intern, gaining exposure to data‑driven decision making and practical
+            organization‑level analysis.[file:46]
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-heading">Contact & Next Steps</h2>
+      <p class="section-subtitle">
+        I am open to research internships, collaborative academic projects, and roles related to VLSI, RF, embedded
+        systems, or control & instrumentation.[file:46]
+      </p>
+
+      <div class="contact-grid">
+        <aside class="contact-card">
+          <p>
+            <strong>Let’s connect.</strong><br />
+            If you’re looking for someone who enjoys diving deep into technical details, building circuits and
+            simulations, and documenting work carefully, I’d be happy to talk.
+          </p>
+
+          <div class="contact-links">
+            <!-- Replace with your real public links as needed -->
+            <a href="mailto:somya.goel2005@gmail.com">
+              <span class="icon">✉</span>
+              <span>somya.goel2005@gmail.com</span>
+            </a>
+            <a href="mailto:23BEC204@sot.pdpu.ac.in">
+              <span class="icon">@</span>
+              <span>23BEC204@sot.pdpu.ac.in</span>
+            </a>
+            <!-- Put your actual LinkedIn & GitHub URLs here -->
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <span class="icon">in</span>
+              <span>linkedin.com/in/your-profile</span>
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <span class="icon">⌂</span>
+              <span>github.com/your-username</span>
+            </a>
+          </div>
+        </aside>
+
+        <form>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="you@example.com" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about the role, project, or idea..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Send message (static demo)</button>
+          <p class="hero-secondary-note">
+            This is a static form. For a live site, connect it to an email or backend of your choice.
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Somya Goel · Electronics & Communication Engineering ·
+    <a href="#home">Back to top</a>
+  </footer>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
